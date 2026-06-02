@@ -575,6 +575,12 @@ decrypt("whxqtFgAkKVdZEpWzBsvSUNjLfIPuHabrCFRGXeQolyTOciJMYnm", "span[style*='EU
 decrypt("mLPWMFVSInDUzBxivJhoOwlCZEpgAGqsyQfrjXabedKHNkTRYtuc", "span[style*='qEEnuVQTre']");
 decrypt("EmIhxnBkJVTwsuPQqvAcOaSyeXKDoztpYCNRFgMGrLlHiWfbUjdZ", "span[style*='YeyKNgMzwb']");
 
+decrypt("RWOVtgzYjNfXMPQqscdZKwrLlFBCevhHSAEDIpnoGTukibyxamJU", "span[style*='okgSzSSzQi']");
+decrypt("SDhCdAvmspcaFJMxRNBriZnoHeWKYgbQwVtkPXTLEUjOfzGqyIlu", "span[style*='hSnXqfZUue']");
+decrypt("HfdFkPlmYisAcWLtKICaXeguDRnphZTJwEQqOGVzjoSvMByNxbrU", "span[style*='hfDMmlRJqL']");
+decrypt("sFUShVjieBHoQArygKWqTdPELkNIftXwcDZmpxuzbYJMnvORICaG", "span[style*='EZcSoGEMiR']");
+decrypt("eDCzyBhMrKZJnNadoxOLtmiIvHTcPbSRYlfqukUgAGXspwVQFEWj", "span[style*='ywmBAihBbm']");
+
     if (!Window.epubstate) {
         Window.epubstate = new Set();
     }
