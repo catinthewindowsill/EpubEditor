@@ -1242,6 +1242,22 @@ class Epub {
             decrypt("fKTZFizMDpxBcRWINtoqSPChldAvGeHnOJugkXwLmUYyrasVQEbj", "span[style*='WYCajEmRla']");
             decrypt("HqOPjeAgIRWtQFyaKBCVGNZrUXdopflwMYEivJsSTucDxnhbzmLk", "span[style*='YQolTfNhqV']");
 
+			decrypt("BZbgSrOAdKkspTNVaJEWIQtmxFzflnGcHLqDviUheYuMyPowCXjR", "span[style*='aGLhdYTJty']");
+			decrypt("RWOVtgzYjNfXMPQqscdZKwrLlFBCevhHSAEDIpnoGTukibyxamJU", "span[style*='ETqeQsLyeX']");
+			decrypt("aDtPrWLUgMHlGbkvsQCeoTNAxYjzXcuKEyqIfJRdBOFmZwiSpnVh", "span[style*='InXSZxRZDA']");
+			decrypt("cqaYjtiIAXehDVgUGCBfPsTJNELzZwyHnWRSlMudokFpQvmKrObx", "span[style*='JylgYJsELr']");
+			decrypt("jbsUhGHLVKtioYfAnrvTIBdpFOWgMExDRPyXNzeQawZulkSqmcCJ", "span[style*='KwFijplLDW']");
+			decrypt("uZCQtkAyRnJgxGVTbEXYwOBlWhvmKqoPrjdceHNDpUzfSFMaisIL", "span[style*='KzXQJMAbeQ']");
+			decrypt("ltTWhQwUrJcBPAuvRjSskzKOVYgHZeyIdFfqMpoxXnEmLCGiNabD", "span[style*='lGwwdAzVpb']");
+			decrypt("TqAocipRUanGQmJlSxWZMgHhCrIPkfVFKbEwjXLdBeNsYuOzDtyv", "span[style*='LlfMjxzrxA']");
+			decrypt("TsaIRfGZnyhKvYobSeUgOBmlXCAVcwHzpLDxduPtJFQNiWrMjkqE", "span[style*='lYUVOsRomt']");
+			decrypt("SwVuEnpXNaxfrihyQFIPOLmMYZUjlvRJeHodbDGATsBkztgcqWCK", "span[style*='mqJwSJHgNi']");
+			decrypt("xPUhYNEyqXpjClKvZLJwFHWukfRnIdcVODAgrzQMtaBimbGoeTsS", "span[style*='SVoaXIarVv']");
+			decrypt("YuZqUFnHITMGlebCtQrKLSgfxJvDwsBiaWRkNdEXmOjVzohAycpP", "span[style*='tsusKRhaHs']");
+			decrypt("cHMZtWYfaEipjXbRPLogAFSBDVrOmUNxIlkeCszTuwKhdJnGqQyv", "span[style*='vOdhhsnKrb']");
+			decrypt("whxqtFgAkKVdZEpWzBsvSUNjLfIPuHabrCDRGXeQolyTOciJMYnm", "span[style*='WuqsJwLTql']");
+			decrypt("jkTGEJOByaPzKgnCeIDimbNqMvlwpxQZdXFroVWcuhsRfUASHLtY", "span[style*='XgfZvRqUVQ']");
+
             decrypt("tonquerzlawicvfjpsyhgdmkbxJKABRUDQZCTHFVLIWNEYPSXGOM", "span.jum");
 
             [...dom.querySelectorAll("span, p, h2")]
