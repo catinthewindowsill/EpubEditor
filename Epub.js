@@ -1417,6 +1417,58 @@ class Epub {
         return sequence;
     }
 
+    async linkExtraFonts() {
+        let stylesheetpath = "OEBPS/Styles/stylesheet.css";
+        let contentopfpath = "OEBPS/content.opf";
+        let file = this.zipObjects.get(stylesheetpath);
+        let stylesheettext = await file.async("text");
+        file = this.zipObjects.get(contentopfpath);
+        let contentopftext = await file.async("text");
+        let allkeys = [...this.zipObjects.keys()];
+        let fontPaths = allkeys.filter(a => a.startsWith("OEBPS/Fonts/"));
+        let newFontPaths = new Map();
+        for (let fontPath of fontPaths) {
+            if (fontPath.endsWith(".woff2")) {
+                let file = this.zipObjects.get(fontPath);
+                let woff2Data = await file.async("uint8array");
+                let decompressed = await Module.decompress(woff2Data);
+
+                let ext = this.getFontExtension(decompressed);
+                let newFontPath = fontPath.replace(".woff2", ext);
+                //otherwise it saves the same data under different filepaths
+                let isolatedData = new Uint8Array(decompressed);
+                this.zip.file(newFontPath, isolatedData, {binary: true});
+                this.zip.remove(fontPath);
+
+                stylesheettext = stylesheettext + "\n@font-face {\n  src: url(../Fonts/" + newFontPath.replace("OEBPS/Fonts/", "") + ");\n  font-family: \"" + newFontPath.replace("OEBPS/Fonts/", "").replace(/\..+/, "") + "\";\n}\n";
+
+                let item = '<item href="/Fonts/' + newFontPath.replace("OEBPS/Fonts/", "")+'" id="'+ newFontPath.replace("OEBPS/Fonts/", "").replace(/\..+/, "")+'" media-type="font/'+(ext.replace(".", ""))+'"/>\n';
+                contentopftext = contentopftext.replace("</manifest>", item+"</manifest>");
+            } else {
+                stylesheettext = stylesheettext + "\n@font-face {\n  src: url(../Fonts/" + fontPath.replace("OEBPS/Fonts/", "") + ");\n  font-family: \"" + fontPath.replace("OEBPS/Fonts/", "").replace(/\..+/, "") + "\";\n}\n";
+
+                let item = '<item href="/Fonts/' + fontPath.replace("OEBPS/Fonts/", "")+'" id="'+ fontPath.replace("OEBPS/Fonts/", "").replace(/\..+/, "")+'" media-type="font/'+(fontPath.split(".").pop())+'"/>\n';
+                contentopftext = contentopftext.replace("</manifest>", item+"</manifest>");
+            }
+        }
+        let options = this.createZipOptions(file);
+        //for apple user
+        contentopftext = contentopftext.replace("</manifest>", '<meta property="ibooks:specified-fonts">true</meta>'+"</manifest>");
+        this.zip.file(contentopfpath, contentopftext, options);
+        return this.zip.file(stylesheetpath, stylesheettext, options);
+    }
+    
+    getFontExtension(data) {
+        if (data && data.length >= 4) {
+            // "OTTO" is 0x4F, 0x54, 0x54, 0x4F
+            if (data[0] === 0x4F && data[1] === 0x54 && data[2] === 0x54 && data[3] === 0x4F) {
+                return ".otf";
+            }
+        }
+        return ".ttf";
+    }
+
+
     updateDate(dateString) {
         let dateEl = this.opf.dom.querySelector("dc\\:date:not([opf\\:event])");
         if (dateEl !== null) {
