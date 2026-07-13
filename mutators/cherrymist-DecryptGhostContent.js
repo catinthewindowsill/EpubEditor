@@ -10,7 +10,7 @@
 //   </div>
 //
 // encoding (from FictioneerParser.processGhostContent):
-//   rot13 -> atob -> decodeURIComponent
+//   encodeURIComponent -> btoa -> rot13
 // so decoding reverses it: rot13 -> atob -> decodeURIComponent
 
 const SELECTOR = "div.fictioneer-ghost-encrypted";
